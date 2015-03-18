@@ -1,0 +1,4 @@
+<script type="text/javascript">
+alert(/a(a)(b)|c/g('aab'));
+</script>
+

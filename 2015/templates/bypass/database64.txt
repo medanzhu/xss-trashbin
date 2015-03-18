@@ -1,0 +1,19 @@
+<object data="data:text/html, <script>alert(document.URL)</script>">
+
+以下这句实际上是&lt;script&gt;alert(3)&lt;/script&gt;的BASE64编码
+<object data="data:text/html;base64,PHNjcmlwdD5hbGVydCgzKTwvc2NyaXB0Pg">
+
+<a href="data:text/html,<script>alert('TEST 3')</script>">点击测试</a>
+
+
+<script>
+window.open('data:text/html;charset=utf-8,' + 
+    encodeURIComponent( // Escape for URL formatting
+        '<!DOCTYPE html>'+
+        '<html lang="en">'+
+        '<head><title>Embedded Window</title></head>'+
+        '<body><h1>42</h1></body>'+
+        '</html>'
+    )
+);
+</script>

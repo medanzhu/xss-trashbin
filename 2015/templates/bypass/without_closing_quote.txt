@@ -1,0 +1,2 @@
+HTML校验不严谨，缺乏闭合的引号（需要早期版本的FF）：<br>
+<img src="foobar onerror=alert(1)//

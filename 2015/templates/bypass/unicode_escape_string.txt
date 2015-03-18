@@ -1,0 +1,4 @@
+在JS的String里使用Unicode编码
+<script type="text/javascript">
+eval("\\u0061lert(1)")
+</script>

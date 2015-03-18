@@ -1,0 +1,4 @@
+<script>
+ document.write("Site is at: " + document.location.href + ".");
+// var result = someFunction(window.referer);
+</script>

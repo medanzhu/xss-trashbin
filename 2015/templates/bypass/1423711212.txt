@@ -1,0 +1,1 @@
+<img/\/æ/src=x onerror=alert(1)//>

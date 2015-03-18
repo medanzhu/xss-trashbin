@@ -1,0 +1,6 @@
+³¬³öASCII±í·¶Î§µÄ×Ö·û(230,xE6)
+<Læ onclick=alert(1)>click me 1</Læ>
+ÓÃÃüÃû¿Õ¼ä
+<L:æ onclick=alert(2)>click me 2</L:æ>
+
+<L:d onclick=alert(3)>click me 3</L:d>

@@ -1,0 +1,96 @@
+<DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+</head>
+<body>
+<script>			
+var jump_time=300; //延迟跳转时间,毫秒，这里只要是为了延迟时间，否则统计可能不生效
+var udata={
+	"B2345":{
+		"stat_code":'<script src="http://s11.cnzz.com/stat.php?id=1253891267&web_id=1253891267"><\/script>',
+		"url":"http://2345.lft2.com"
+	},
+	"B360"	:{
+		"stat_code":'<script src="http://s4.cnzz.com/stat.php?id=1253891264&web_id=1253891264"><\/script>',
+		"url":"http://hao.360.cn/?src=lm&ls=n0f0758f093"
+	},
+	"Bie":{
+		"stat_code":'<script src="http://s95.cnzz.com/stat.php?id=1253891261&web_id=1253891261"><\/script>',
+		"url":"http://www.2345.com/tg16937.htm"
+	},
+	"Bother":{
+		"stat_code":'<script src="http://s95.cnzz.com/stat.php?id=1253891261&web_id=1253891261"><\/script>',
+		"url":"http://www.2345.com/tg16937.htm"
+	}
+	
+}
+var uagent=window.navigator.userAgent.toLowerCase();
+var check360browser={
+	'back':function(result){  //2345 在外面判断就可以了
+		if(result){  //360浏览器
+			swrite(udata.B360.stat_code);
+			setTimeout("window.location='"+udata.B360.url+"'",jump_time);  
+		}else if(uagent.match(/(msie\s|trident.*rv:)([\w.]+)/)){ // ie
+			swrite(udata.Bie.stat_code);
+			setTimeout("window.location='"+udata.Bie.url+"'",jump_time); 
+		}else{ //其他浏览器
+			swrite(udata.Bother.stat_code);
+			if(udata.Bother.url){
+				setTimeout("window.location='"+udata.Bother.url+"'",jump_time);  
+			}	
+		}
+	},
+	"is360":function (){   // 5版本
+		var ret = false,        
+		img = new Image();  
+		img.src = 'res://360se.exe/2/2025';    
+		img.onload = function() { 
+			ret = true;   
+		}    
+		setTimeout(function(){      
+				if(ret==true){
+					check360browser.back(true);		
+				}else{		
+					ret=check360browser.is360_6();		
+					check360browser.back(ret);		
+						
+				}
+		}, 100);  
+		
+
+	} ,
+	"is360_6":function (){   // 6.0版本 
+		var is360 = false;    
+		if(window.navigator.userAgent.indexOf('Chrome')!=-1){  
+			if(window.navigator.webkitPersistentStorage){  
+ 
+			}else{  
+				return true;  
+			}  
+		}  		
+	}	
+}
+
+function swrite(code){
+	document.write('<style>a{display:none;}</style>'+code);  
+}
+
+var ischeck=0;
+var is2345=0;  //2345浏览器服务器端能获取到标识，js貌似获取不到
+if(is2345){  //如果是2345
+	ischeck=1;
+	swrite(udata.B2345.stat_code);
+	setTimeout("window.location='"+udata.B2345.url+"'",jump_time);  
+}
+//360版本 5 要异步判断
+if(ischeck==0){
+	check360browser.is360();
+}
+
+</script>
+
+</body>
+
+</html>
+

