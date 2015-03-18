@@ -1,0 +1,22 @@
+<html>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<title>XSS的防范措施</title>
+<link rel="stylesheet" href="page.css" />
+<body>
+<h3>参见<a target="_blank" href="https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet">OWASP规范</a>、《XSS跨站脚本攻击剖析与防御》Ch.8</h3>
+<ul>
+<li>除非在明确许可的位置，不要在网页内插入不信任的数据</li>
+<li>要注意浏览器对HTML、JS、CSS的解析顺序</li>
+<li>在HTML元素内部的位置，要先进行HTML转义处理</li>
+<li>在JavaScript的数值位置插入不信任的数据，要做JavaScript转义处理（more...）</li>
+<li>要转义在HTML的风格属性值中加入的不信任数据</li>
+<li>要转义在HTML URL参数值里的不信任数据</li>
+<li>以适合项目的框架来过滤清理一切HTML标签</li>
+<li>Prevent DOM-based XSS</li>
+<li>使用HTTPOnly Cookie标记</li>
+<li>部署CSP框架</li>
+</ul>
+<hr><br>
+<p class="diy"><a href="index.html" >返回首页</a>    <a href="encoding.html" >转义编码要求</a></p>
+</body>
+</html>

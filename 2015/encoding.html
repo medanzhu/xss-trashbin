@@ -1,0 +1,131 @@
+<html>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<title>XSS防范相关的编码处理</title>
+<link rel="stylesheet" href="page.css" />
+<body>
+<h3>参见</h3>
+<table class="wikitable nowraplinks">
+<tbody><tr>
+<th> Data Type
+</th>
+<th> Context
+</th>
+<th> Code Sample
+</th>
+<th> Defense
+</th></tr>
+<tr>
+<td> String
+</td>
+<td> HTML Body
+</td>
+<td> &lt;span&gt;<span style="color:red;">UNTRUSTED DATA</span>&lt;/span&gt;
+</td>
+<td> <ul><li><a rel="nofollow" class="external text" href="https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet#RULE_.231_-_HTML_Escape_Before_Inserting_Untrusted_Data_into_HTML_Element_Content">HTML Entity Encoding</a></li></ul>
+</td></tr>
+<tr>
+<td> String
+</td>
+<td> Safe HTML Attributes
+</td>
+<td> &lt;input type="text" name="fname" value="<span style="color:red;">UNTRUSTED DATA</span>"&gt;
+</td>
+<td> <ul><li><a rel="nofollow" class="external text" href="https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet#RULE_.232_-_Attribute_Escape_Before_Inserting_Untrusted_Data_into_HTML_Common_Attributes">Aggressive HTML Entity Encoding</a></li><li>Only place untrusted data into a whitelist of safe attributes (listed below).</li><li>Strictly validate unsafe attributes such as background, id and name.</li></ul>
+</td></tr>
+<tr>
+<td> String
+</td>
+<td> GET Parameter
+</td>
+<td> &lt;a href="/site/search?value=<span style="color:red;">UNTRUSTED DATA</span>"&gt;clickme&lt;/a&gt;
+</td>
+<td> <ul><li><a rel="nofollow" class="external text" href="https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet#RULE_.235_-_URL_Escape_Before_Inserting_Untrusted_Data_into_HTML_URL_Parameter_Values">URL Encoding</a></li></ul>
+</td></tr>
+<tr>
+<td> String
+</td>
+<td> Untrusted URL in a SRC or HREF attribute
+</td>
+<td> &lt;a href="<span style="color:red;">UNTRUSTED URL</span>"&gt;clickme&lt;/a&gt;<br>&lt;iframe src="<span style="color:red;">UNTRUSTED URL</span>" /&gt;
+</td>
+<td> <ul><li>Canonicalize input</li><li>URL Validation</li><li>Safe URL verification</li><li>Whitelist http and https URL's only (<a href="/index.php/Avoid_the_JavaScript_Protocol_to_Open_a_new_Window" title="Avoid the JavaScript Protocol to Open a new Window">Avoid the JavaScript Protocol to Open a new Window</a>)</li><li>Attribute encoder</li></ul>
+</td></tr>
+<tr>
+<td> String
+</td>
+<td> CSS Value
+</td>
+<td> &lt;div style="width: <span style="color:red;">UNTRUSTED DATA</span>;"&gt;Selection&lt;/div&gt;
+</td>
+<td> <ul><li><a rel="nofollow" class="external text" href="https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet#RULE_.234_-_CSS_Escape_And_Strictly_Validate_Before_Inserting_Untrusted_Data_into_HTML_Style_Property_Values">Strict structural validation</a></li><li>CSS Hex encoding</li><li>Good design of CSS Features</li></ul>
+</td></tr>
+<tr>
+<td> String
+</td>
+<td> JavaScript Variable
+</td>
+<td> &lt;script&gt;var currentValue='<span style="color:red;">UNTRUSTED DATA</span>';&lt;/script&gt;<br>&lt;script&gt;someFunction('<span style="color:red;">UNTRUSTED DATA</span>');&lt;/script&gt;
+</td>
+<td> <ul><li>Ensure JavaScript variables are quoted</li><li>JavaScript Hex Encoding</li><li>JavaScript Unicode Encoding</li><li>Avoid backslash encoding (\" or \' or \\)</li></ul>
+</td></tr>
+<tr>
+<td> HTML
+</td>
+<td> HTML Body
+</td>
+<td> &lt;div&gt;<span style="color:red;">UNTRUSTED HTML</span>&lt;/div&gt;
+</td>
+<td> <ul><li><a rel="nofollow" class="external text" href="https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet#RULE_.236_-_Use_an_HTML_Policy_engine_to_validate_or_clean_user-driven_HTML_in_an_outbound_way">HTML Validation (JSoup, AntiSamy, HTML Sanitizer)</a></li></ul>
+</td></tr>
+<tr>
+<td> String
+</td>
+<td> DOM XSS
+</td>
+<td> &lt;script&gt;document.write(<span style="color:red;">"UNTRUSTED INPUT: " + document.location.hash</span>);&lt;script/&gt;
+</td>
+<td> <ul><li><a href="/index.php/DOM_based_XSS_Prevention_Cheat_Sheet" title="DOM based XSS Prevention Cheat Sheet">DOM based XSS Prevention Cheat Sheet</a></li></ul>
+</td></tr></tbody></table>
+<p><i><b>Safe HTML Attributes include:</b></i> align, alink, alt, bgcolor, border, cellpadding, cellspacing, class, color, cols, colspan, coords, dir, face, height, hspace, ismap, lang, marginheight, marginwidth, multiple, nohref, noresize, noshade, nowrap, ref, rel, rev, rows, rowspan, scrolling, shape, span, summary, tabindex, title, usemap, valign, value, vlink, vspace, width
+</p>
+
+<h1><span class="mw-headline" id="Output_Encoding_Rules_Summary">Output Encoding Rules Summary</span></h1>
+<p>The purpose of output encoding (as it relates to Cross Site Scripting) is to convert untrusted input into a safe form where the input is displayed as <b>data</b> to the user without executing as <b>code</b> in the browser. The following charts details a list of critical output encoding methods needed to stop Cross Site Scripting.
+</p>
+
+<table class="wikitable">
+<tbody><tr>
+<th> Encoding Type
+</th>
+<th> Encoding Mechanism
+</th></tr>
+<tr>
+<td> HTML Entity Encoding
+</td>
+<td>   Convert &amp; to &amp;amp;<br>Convert &lt; to &amp;lt;<br>Convert &gt; to &amp;gt;<br>Convert " to &amp;quot;<br>Convert ' to &amp;#x27;<br>Convert / to &amp;#x2F;
+</td></tr>
+<tr>
+<td> HTML Attribute Encoding
+</td>
+<td> Except for alphanumeric characters, escape all characters with the HTML Entity &amp;#xHH; format, including spaces. (HH = Hex Value)
+</td></tr>
+<tr>
+<td> URL Encoding
+</td>
+<td> Standard percent encoding, see: <a rel="nofollow" class="external free" href="http://www.w3schools.com/tags/ref_urlencode.asp">http://www.w3schools.com/tags/ref_urlencode.asp</a>. URL encoding should only be used to encode parameter values, not the entire URL or path fragments of a URL.
+</td></tr>
+<tr>
+<td> JavaScript Encoding
+</td>
+<td> Except for alphanumeric characters, escape all characters with the \uXXXX unicode escaping format (X = Integer).
+</td></tr>
+<tr>
+<td> CSS Hex Encoding
+</td>
+<td> CSS escaping supports \XX and \XXXXXX. Using a two character escape can cause problems if the next character continues the escape sequence. There are two solutions (a) Add a space after the CSS escape (will be ignored by the CSS parser) (b) use the full amount of CSS escaping possible by zero padding the value.
+</td></tr></tbody></table>
+
+<hr><br>
+<p class="diy"><a href="index.html" >返回首页</a>    <a href="encoding.html" >转义编码要求</a></p>
+</body>
+</html>
